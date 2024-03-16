@@ -1,5 +1,3 @@
-// Write your helper functions here!
-
 require('cross-fetch/polyfill');
 
 function addDestinationInfo(document, name, diameter, star, distance, moons, imageUrl) {
@@ -18,14 +16,13 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 }
 
 function validateInput(testInput) {
-if (testInput === "") {
-    return "Empty";
-    window.alert("All fields are required!");
-} else if (isNaN(testInput) === true) {
-    return "Not a Number";
-} else if (isNaN(testInput) === false) {
-    return "Is a Number";
-}
+    if (testInput === "") {
+        return "Empty";
+    } else if (isNaN(testInput) === true) {
+        return "Not a Number";
+    } else if (isNaN(testInput) === false) {
+        return "Is a Number";
+    }
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
@@ -78,7 +75,7 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
         fuelStatus.innerHTML = "Fuel level too low for launch";
         cargoStatus.innerHTML = "Cargo mass too heavy for launch";
     }
-
+    this.stopPropagation();
 }
 
 async function myFetch() {

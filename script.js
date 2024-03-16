@@ -1,5 +1,3 @@
-// Write your JavaScript code here!
-
 const { formSubmission } = require("./scriptHelper");
 
 window.addEventListener("load", function() {
@@ -14,5 +12,9 @@ window.addEventListener("load", function() {
         console.log(listedPlanets);
         // Below this comment call the appropriate helper functions to pick a planet fom the list of planets and add that information to your destination.
     })
-    document.getElementById('formSubmit').addEventListener('click', formSubmission);
+    const formSubmit = this.document.getElementById('formSubmit');
+
+    formSubmit.addEventListener('click', (event) => {
+        event.formSubmission;
+    });
  });
