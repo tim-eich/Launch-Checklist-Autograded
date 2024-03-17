@@ -26,4 +26,4 @@ window.addEventListener("load", function() {
     })
 
     
- });
+ }); 
