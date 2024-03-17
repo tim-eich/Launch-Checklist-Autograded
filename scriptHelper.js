@@ -20,7 +20,6 @@ function addDestinationInfo(document, name, diameter, star, distance, moons, ima
 function validateInput(testInput) {
 if (testInput === "") {
     return "Empty";
-    window.alert("All fields are required!");
 } else if (isNaN(testInput) === true) {
     return "Not a Number";
 } else if (isNaN(testInput) === false) {
@@ -29,6 +28,7 @@ if (testInput === "") {
 }
 
 function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
+    console.log("CLICK! CLICK! CLICK!");
     let launchStatus = document.getElementById('launchStatus');
     let faultyItems = document.getElementById('faultyItems');
     let fuelStatus = document.getElementById('fuelStatus');
@@ -38,16 +38,24 @@ function formSubmission(document, list, pilot, copilot, fuelLevel, cargoLevel) {
     let fuel;
     let cargo;
     
-    if (validateInput(pilot) == "Not a Number") {
+    if (validateInput(pilot) !== "Not a Number") {
+        window.alert("Please enter a name")
+    } else {
         pilotName = pilot;
     }
-    if (validateInput(copilot) == "Not a Number") {
+    if (validateInput(copilot) !== "Not a Number") {
+        window.alert("Please enter a name");
+    } else {
         copilotName = copilot;
     }
-    if (validateInput(fuelLevel) == "Is a Number") {
+    if (validateInput(fuelLevel) !== "Is a Number") {
+        window.alert("All Fields are Required!")
+    } else {
         fuel = fuelLevel;
     }
-    if (validateInput(cargoLevel) == "Is a Number") {
+    if (validateInput(cargoLevel) !== "Is a Number") {
+        window.alert("All Fields are Required!");
+    } else {
         cargo = cargoLevel;
     }
 
@@ -93,8 +101,10 @@ async function myFetch() {
 function pickPlanet(planets) {
 }
 
-module.exports.addDestinationInfo = addDestinationInfo;
-module.exports.validateInput = validateInput;
-module.exports.formSubmission = formSubmission;
-module.exports.pickPlanet = pickPlanet; 
-module.exports.myFetch = myFetch;
+module.exports = {
+    addDestinationInfo: addDestinationInfo,
+    validateInput: validateInput,
+    formSubmission: formSubmission,
+    pickPlanet: pickPlanet, 
+    myFetch: myFetch
+}
