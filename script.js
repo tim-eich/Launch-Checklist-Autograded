@@ -22,7 +22,7 @@ window.addEventListener("load", function() {
         e.preventDefault();
         e.stopPropagation();
         let document = this.document;
-        let list = this.window;
+        let list = document.getElementById('faultyItems');
         let pilot = document.getElementById('pilotName').value;
         let copilot = document.getElementById('copilotName').value;
         let fuelLevel = document.getElementById('fuelLevel').value;
